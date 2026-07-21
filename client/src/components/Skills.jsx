@@ -50,7 +50,7 @@ export default function Skills() {
     <section id="skills">
       <div className="wrap">
         <div className="tag">02 — stack</div>
-        <h2 className="reveal in" ref={headRef}>Tools I reach for</h2>
+        <h2 className="reveal in" ref={headRef}>Tools I <span>Reach For</span></h2>
         <p className="section-lede reveal in">Not an exhaustive list — just what actually ships. Depth over breadth.</p>
         <div className="modules">
           {SKILLS.map((s) => (

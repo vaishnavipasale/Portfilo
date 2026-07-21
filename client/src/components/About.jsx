@@ -15,6 +15,7 @@ export default function About() {
     <section id="about">
       <div className="wrap">
         <div className="tag">01 — about</div>
+        <h2 className="reveal" ref={textRef}>About <span>Me</span></h2>
         <div className="about-grid">
           <div className="reveal" ref={textRef}>
             <p>

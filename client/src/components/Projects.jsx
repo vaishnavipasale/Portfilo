@@ -49,7 +49,7 @@ export default function Projects() {
     <section id="projects">
       <div className="wrap">
         <div className="tag">03 — projects</div>
-        <h2 className="reveal in" ref={headRef}>Things I've built</h2>
+        <h2 className="reveal in" ref={headRef}>Things I've <span>Built</span></h2>
         <p className="section-lede reveal in">Pulled live from the API — edit server/src/data/projects.js to update.</p>
 
         {status === 'loading' && <p className="state-msg">$ fetching projects…</p>}

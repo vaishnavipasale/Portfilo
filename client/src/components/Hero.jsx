@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 
 const BOOT_LINES = [
   { text: '$ whoami', type: 'prompt', pause: 200 },
-  { text: 'loading profile...', type: 'out-role', pause: 350 },
+  { text: 'initializing profile...', type: 'out-role', pause: 350 },
   { text: 'Vaishnavi Pasale', type: 'out-name', pause: 250 },
   { text: 'Full-Stack Developer — React, Node.js & Flutter.', type: 'out-role', pause: 0 }
 ];
@@ -68,6 +68,21 @@ export default function Hero() {
         <div className="hero-cta hero-enter" style={{ animationDelay: '0.25s' }}>
           <a href="#projects" className="btn btn-primary">view projects →</a>
           <a href="#contact" className="btn btn-ghost">get in touch</a>
+        </div>
+
+        <div className="hero-stats hero-enter" style={{ animationDelay: '0.35s' }}>
+          <div className="hero-stat">
+            <span className="hero-stat-num">4+</span>
+            <span className="hero-stat-label">Projects</span>
+          </div>
+          <div className="hero-stat">
+            <span className="hero-stat-num">2</span>
+            <span className="hero-stat-label">Internships</span>
+          </div>
+          <div className="hero-stat">
+            <span className="hero-stat-num">8.02</span>
+            <span className="hero-stat-label">SGPA</span>
+          </div>
         </div>
       </div>
       <div className="scroll-cue"><span>scroll</span><span className="bar" /></div>
