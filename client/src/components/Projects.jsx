@@ -1,6 +1,43 @@
-import { useEffect, useState } from 'react';
 import { useReveal } from '../hooks/useReveal.js';
-import { getProjects } from '../api/api.js';
+
+const PROJECTS = [
+  {
+    id: 'gate-pass-generator',
+    name: 'Gate Pass Generator',
+    description:
+      'Digital gate pass generation and approval system to streamline student movement tracking and enhance campus security.',
+    stack: ['Flutter', 'Dart'],
+    demoUrl: '',
+    sourceUrl: 'https://github.com/vaishnavipasale'
+  },
+  {
+    id: 'hostel-management-system',
+    name: 'Hostel Management System',
+    description:
+      'Web-based system to manage room allocation, student records, and fee management, improving administrative efficiency through automation.',
+    stack: ['React', 'Laravel', 'MySQL'],
+    demoUrl: '',
+    sourceUrl: 'https://github.com/vaishnavipasale'
+  },
+  {
+    id: 'kiddoji',
+    name: 'Kiddoji',
+    description:
+      'Child-friendly Android learning app with an interactive UI that teaches alphabets, numbers, and basic concepts in an engaging way.',
+    stack: ['Android', 'Java'],
+    demoUrl: '',
+    sourceUrl: 'https://github.com/vaishnavipasale'
+  },
+  {
+    id: 'task-management-system',
+    name: 'Task Management System',
+    description:
+      'Task management platform with task creation, assignment, priority handling, deadline tracking, and progress dashboards.',
+    stack: ['React', 'Node.js', 'Express'],
+    demoUrl: '',
+    sourceUrl: 'https://github.com/vaishnavipasale'
+  }
+];
 
 function ProjectCard({ project }) {
   const ref = useReveal();
@@ -27,42 +64,17 @@ function ProjectCard({ project }) {
 
 export default function Projects() {
   const headRef = useReveal();
-  const [projects, setProjects] = useState([]);
-  const [status, setStatus] = useState('loading'); // loading | ready | error
-
-  useEffect(() => {
-    let cancelled = false;
-    getProjects()
-      .then((data) => {
-        if (!cancelled) {
-          setProjects(data);
-          setStatus('ready');
-        }
-      })
-      .catch(() => {
-        if (!cancelled) setStatus('error');
-      });
-    return () => { cancelled = true; };
-  }, []);
 
   return (
     <section id="projects">
       <div className="wrap">
         <div className="tag">03 — projects</div>
         <h2 className="reveal in" ref={headRef}>Things I've <span>Built</span></h2>
-        <p className="section-lede reveal in">Pulled live from the API — edit server/src/data/projects.js to update.</p>
+        <p className="section-lede reveal in">A selection of projects I've worked on.</p>
 
-        {status === 'loading' && <p className="state-msg">$ fetching projects…</p>}
-        {status === 'error' && (
-          <p className="state-msg">
-            Couldn't reach the API. Make sure the backend is running on the configured port.
-          </p>
-        )}
-        {status === 'ready' && (
-          <div className="projects">
-            {projects.map((p) => <ProjectCard key={p.id} project={p} />)}
-          </div>
-        )}
+        <div className="projects">
+          {PROJECTS.map((p) => <ProjectCard key={p.id} project={p} />)}
+        </div>
       </div>
     </section>
   );
