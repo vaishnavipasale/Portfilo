@@ -20,8 +20,8 @@ export default function Contact() {
     <section id="contact">
       <div className="wrap">
         <div className="tag">05 — contact</div>
-        <h2 className="reveal in">Let's <span>Talk</span></h2>
-        <p className="section-lede reveal in">Open to senior/staff roles and interesting freelance work.</p>
+        <h2 className="reveal">Let's <span>Talk</span></h2>
+        <p className="section-lede reveal">Open to senior/staff roles and interesting freelance work.</p>
 
         <div className="contact-term reveal" ref={ref}>
           <div className="terminal-bar">

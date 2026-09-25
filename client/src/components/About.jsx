@@ -17,17 +17,24 @@ export default function About() {
         <div className="tag">01 — about</div>
         <h2 className="reveal" ref={textRef}>About <span>Me</span></h2>
         <div className="about-grid">
-          <div className="reveal" ref={textRef}>
-            <p>
-              I'm a B.Tech graduate in <strong>Artificial Intelligence and Data Science</strong>, with hands-on
-              experience building full-stack web and mobile applications. I like turning a rough idea into
-              something people can actually click through — from database schema to the last pixel of UI.
-            </p>
-            <p>
-              Most recently I've been deep in the <strong>MERN stack</strong>, with earlier work spanning
-              <strong> Flutter</strong> and <strong>Android</strong> apps. I'm eager to bring that mix of
-              software development and analytical thinking to a team building real products.
-            </p>
+          <div className="profile-section reveal" ref={textRef}>
+            <div className="profile-photo">
+              <div className="profile-placeholder">
+                <span className="profile-initials">VP</span>
+              </div>
+            </div>
+            <div className="profile-content">
+              <p>
+                I'm a B.Tech graduate in <strong>Artificial Intelligence and Data Science</strong>, with hands-on
+                experience building full-stack web and mobile applications. I like turning a rough idea into
+                something people can actually click through — from database schema to the last pixel of UI.
+              </p>
+              <p>
+                Most recently I've been deep in the <strong>MERN stack</strong>, with earlier work spanning
+                <strong> Flutter</strong> and <strong>Android</strong> apps. I'm eager to bring that mix of
+                software development and analytical thinking to a team building real products.
+              </p>
+            </div>
           </div>
           <div className="stat-block reveal" ref={statsRef}>
             {STATS.map((s) => (

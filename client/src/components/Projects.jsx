@@ -69,8 +69,8 @@ export default function Projects() {
     <section id="projects">
       <div className="wrap">
         <div className="tag">03 — projects</div>
-        <h2 className="reveal in" ref={headRef}>Things I've <span>Built</span></h2>
-        <p className="section-lede reveal in">A selection of projects I've worked on.</p>
+        <h2 className="reveal" ref={headRef}>Things I've <span>Built</span></h2>
+        <p className="section-lede reveal">A selection of projects I've worked on.</p>
 
         <div className="projects">
           {PROJECTS.map((p) => <ProjectCard key={p.id} project={p} />)}

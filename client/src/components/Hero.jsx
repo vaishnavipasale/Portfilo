@@ -49,8 +49,14 @@ export default function Hero() {
   return (
     <section className="hero" style={{ borderTop: 'none', padding: '80px 0 0' }}>
       <div className="hero-grid" />
-      <div className="blob blob-a" />
-      <div className="blob blob-b" />
+      <div className="particles">
+        <div className="particle" />
+        <div className="particle" />
+        <div className="particle" />
+        <div className="particle" />
+        <div className="particle" />
+        <div className="particle" />
+      </div>
       <div className="wrap">
         <div className="terminal hero-enter" style={{ animationDelay: '0.05s' }}>
           <div className="terminal-bar">

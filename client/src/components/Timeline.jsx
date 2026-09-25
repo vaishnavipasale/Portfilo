@@ -51,8 +51,8 @@ export default function Timeline() {
     <section id="experience">
       <div className="wrap">
         <div className="tag">04 — changelog</div>
-        <h2 className="reveal in" ref={headRef}>Career <span>Log</span></h2>
-        <p className="section-lede reveal in">Chronological, like any good release history.</p>
+        <h2 className="reveal" ref={headRef}>Career <span>Log</span></h2>
+        <p className="section-lede reveal">Chronological, like any good release history.</p>
         <div className="timeline">
           {ENTRIES.map((e) => <Entry key={e.ver} entry={e} />)}
         </div>
