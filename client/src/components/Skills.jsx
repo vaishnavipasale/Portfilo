@@ -1,48 +1,50 @@
-import { useEffect, useRef, useState } from 'react';
 import { useReveal } from '../hooks/useReveal.js';
 
-const SKILLS = [
-  { name: 'Flutter', pct: 85 },
-  { name: 'Dart', pct: 82 },
-  { name: 'HTML', pct: 90 },
-  { name: 'CSS', pct: 88 },
-  { name: 'Java Core', pct: 75 },
-  { name: 'Python', pct: 70 },
-  { name: 'Node.js', pct: 82 },
-  { name: 'React.js', pct: 85 },
-  { name: 'JavaScript', pct: 88 },
-  { name: 'Android App Development', pct: 80 },
-  { name: 'GitHub', pct: 90 }
+const LANGUAGES = [
+  { name: 'JavaScript', level: 5 },
+  { name: 'Java', level: 4 },
+  { name: 'Python', level: 4 },
+  { name: 'Dart', level: 4 },
+  { name: 'Kotlin', level: 3 },
+  { name: 'HTML & CSS', level: 5 }
 ];
 
-function SkillModule({ name, pct }) {
-  const ref = useRef(null);
-  const [width, setWidth] = useState(0);
+const FRAMEWORKS = [
+  { name: 'React.js', level: 5 },
+  { name: 'Node.js & Express', level: 4 },
+  { name: 'Flutter', level: 4 },
+  { name: 'Laravel', level: 3 }
+];
 
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setWidth(pct);
-          observer.unobserve(el);
-        }
-      },
-      { threshold: 0.2 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [pct]);
+const DATABASES = [
+  { name: 'MySQL', level: 4 },
+  { name: 'MongoDB', level: 4 },
+  { name: 'Firebase', level: 4 }
+];
 
+const TOOLS = ['Git', 'GitHub', 'Android Studio', 'VS Code', 'Jupyter Notebook', 'Anaconda', 'Zed'];
+
+function Dots({ level, max = 5 }) {
   return (
-    <div className="module" ref={ref}>
-      <div className="module-head">
-        <span className="name">{name}</span>
-        <span className="pct">{pct}%</span>
-      </div>
-      <div className="meter">
-        <div className="meter-fill" style={{ width: `${width}%` }} />
+    <div className="dots">
+      {Array.from({ length: max }).map((_, i) => (
+        <span key={i} className={`dot-pip ${i < level ? 'filled' : ''}`} />
+      ))}
+    </div>
+  );
+}
+
+function SkillGroup({ label, items }) {
+  return (
+    <div className="skill-group">
+      <div className="skill-group-label">{label}</div>
+      <div className="skill-rows">
+        {items.map((s) => (
+          <div className="skill-row" key={s.name}>
+            <span className="name">{s.name}</span>
+            <Dots level={s.level} />
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -50,17 +52,25 @@ function SkillModule({ name, pct }) {
 
 export default function Skills() {
   const headRef = useReveal();
+  const bodyRef = useReveal();
 
   return (
     <section id="skills">
       <div className="wrap">
-        <div className="tag">02 — stack</div>
-        <h2 className="reveal" ref={headRef}>Tools I <span>Reach For</span></h2>
-        <p className="section-lede reveal">Not an exhaustive list — just what actually ships. Depth over breadth.</p>
-        <div className="modules">
-          {SKILLS.map((s) => (
-            <SkillModule key={s.name} {...s} />
-          ))}
+        <h2 className="reveal" ref={headRef}>Skills</h2>
+        <div className="reveal" ref={bodyRef}>
+          <p className="section-lede">Rated the way I'd rate myself in an interview, not how I'd write it on a resume.</p>
+
+          <SkillGroup label="Languages" items={LANGUAGES} />
+          <SkillGroup label="Frameworks &amp; libraries" items={FRAMEWORKS} />
+          <SkillGroup label="Databases" items={DATABASES} />
+
+          <div className="skill-group">
+            <div className="skill-group-label">Tools &amp; platforms</div>
+            <div className="tool-tags">
+              {TOOLS.map((t) => <span className="tool-tag" key={t}>{t}</span>)}
+            </div>
+          </div>
         </div>
       </div>
     </section>

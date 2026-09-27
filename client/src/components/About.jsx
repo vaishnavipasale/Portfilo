@@ -1,48 +1,49 @@
 import { useReveal } from '../hooks/useReveal.js';
 
-const STATS = [
-  { num: '4+', lbl: 'projects shipped end-to-end' },
-  { num: '2', lbl: 'internships in full-stack & MERN dev' },
-  { num: '8.02', lbl: 'SGPA in B.Tech (AI & Data Science)' },
-  { num: '10+', lbl: 'languages, frameworks & tools' }
+const FOCUS = [
+  { k: 'Full-stack web', v: 'React, Node.js, Express' },
+  { k: 'Mobile apps', v: 'Flutter, Android (Java)' },
+  { k: 'Data & AI foundation', v: 'B.Tech coursework' },
+  { k: 'Databases', v: 'MySQL, MongoDB, Firebase' }
 ];
 
 export default function About() {
-  const textRef = useReveal();
-  const statsRef = useReveal();
+  const headRef = useReveal();
+  const bodyRef = useReveal();
 
   return (
     <section id="about">
       <div className="wrap">
-        <div className="tag">01 — about</div>
-        <h2 className="reveal" ref={textRef}>About <span>Me</span></h2>
-        <div className="about-grid">
-          <div className="profile-section reveal" ref={textRef}>
-            <div className="profile-photo">
-              <div className="profile-placeholder">
-                <span className="profile-initials">VP</span>
+        <h2 className="reveal" ref={headRef}>About</h2>
+        <div className="reveal" ref={bodyRef}>
+          <p className="section-lede">The short version, for anyone skimming.</p>
+          <div className="about-grid">
+            <div>
+              <div className="profile-photo-box">VP</div>
+              <div className="profile-content">
+                <p>
+                  I'm a B.Tech graduate in <strong>Artificial Intelligence and Data Science</strong>, with hands-on
+                  experience building full-stack web and mobile applications. I like turning a rough idea into
+                  something people can actually click through — from database schema to the last pixel of UI.
+                </p>
+                <p>
+                  Most recently I've been deep in the <strong>MERN stack</strong>, with earlier work spanning
+                  <strong> Flutter</strong> and <strong>Android</strong> development. I'm looking to bring that mix
+                  of software engineering and analytical thinking to a team building real products.
+                </p>
               </div>
             </div>
-            <div className="profile-content">
-              <p>
-                I'm a B.Tech graduate in <strong>Artificial Intelligence and Data Science</strong>, with hands-on
-                experience building full-stack web and mobile applications. I like turning a rough idea into
-                something people can actually click through — from database schema to the last pixel of UI.
-              </p>
-              <p>
-                Most recently I've been deep in the <strong>MERN stack</strong>, with earlier work spanning
-                <strong> Flutter</strong> and <strong>Android</strong> apps. I'm eager to bring that mix of
-                software development and analytical thinking to a team building real products.
-              </p>
-            </div>
-          </div>
-          <div className="stat-block reveal" ref={statsRef}>
-            {STATS.map((s) => (
-              <div className="stat" key={s.lbl}>
-                <div className="num">{s.num}</div>
-                <div className="lbl">{s.lbl}</div>
+            <div>
+              <div className="focus-list-label">Where I focus</div>
+              <div className="focus-list">
+                {FOCUS.map((f) => (
+                  <div className="focus-row" key={f.k}>
+                    <span className="k">{f.k}</span>
+                    <span className="v">{f.v}</span>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </div>

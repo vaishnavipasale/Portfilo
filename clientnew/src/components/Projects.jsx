@@ -3,7 +3,6 @@ import { useReveal } from '../hooks/useReveal.js';
 const PROJECTS = [
   {
     id: 'gate-pass-generator',
-    caseNo: 'CASE 01',
     name: 'Gate Pass Generator',
     description:
       'Digital gate pass generation and approval system to streamline student movement tracking and enhance campus security.',
@@ -13,7 +12,6 @@ const PROJECTS = [
   },
   {
     id: 'hostel-management-system',
-    caseNo: 'CASE 02',
     name: 'Hostel Management System',
     description:
       'Web-based system to manage room allocation, student records, and fee management, improving administrative efficiency through automation.',
@@ -23,7 +21,6 @@ const PROJECTS = [
   },
   {
     id: 'kiddoji',
-    caseNo: 'CASE 03',
     name: 'Kiddoji',
     description:
       'Child-friendly Android learning app with an interactive UI that teaches alphabets, numbers, and basic concepts in an engaging way.',
@@ -33,7 +30,6 @@ const PROJECTS = [
   },
   {
     id: 'task-management-system',
-    caseNo: 'CASE 04',
     name: 'Task Management System',
     description:
       'Task management platform with task creation, assignment, priority handling, deadline tracking, and progress dashboards.',
@@ -44,17 +40,23 @@ const PROJECTS = [
 ];
 
 function ProjectCard({ project }) {
+  const ref = useReveal();
   return (
-    <div className="case-card">
-      <span className="case-tab">{project.caseNo}</span>
-      <h3>{project.name}</h3>
-      <p>{project.description}</p>
-      <div className="stack">
-        {project.stack.map((s) => <span className="chip" key={s}>{s}</span>)}
+    <div className="card reveal" ref={ref}>
+      <div className="card-bar">
+        <span className="dot r" /><span className="dot y" /><span className="dot g" />
+        <span className="fname">{project.id}/README.md</span>
       </div>
-      <div className="case-links">
-        {project.demoUrl && <a href={project.demoUrl} target="_blank" rel="noreferrer">Live demo</a>}
-        {project.sourceUrl && <a href={project.sourceUrl} target="_blank" rel="noreferrer">Source</a>}
+      <div className="card-body">
+        <h3>{project.name}</h3>
+        <p>{project.description}</p>
+        <div className="stack">
+          {project.stack.map((s) => <span className="chip" key={s}>{s}</span>)}
+        </div>
+        <div className="card-links">
+          {project.demoUrl && <a href={project.demoUrl} target="_blank" rel="noreferrer">live demo →</a>}
+          {project.sourceUrl && <a href={project.sourceUrl} target="_blank" rel="noreferrer">source →</a>}
+        </div>
       </div>
     </div>
   );
@@ -62,17 +64,16 @@ function ProjectCard({ project }) {
 
 export default function Projects() {
   const headRef = useReveal();
-  const bodyRef = useReveal();
 
   return (
     <section id="projects">
       <div className="wrap">
-        <h2 className="reveal" ref={headRef}>Things I've built</h2>
-        <div className="reveal" ref={bodyRef}>
-          <p className="section-lede">Four case files from student projects and internships.</p>
-          <div className="projects">
-            {PROJECTS.map((p) => <ProjectCard key={p.id} project={p} />)}
-          </div>
+        <div className="tag">03 — projects</div>
+        <h2 className="reveal" ref={headRef}>Things I've <span>Built</span></h2>
+        <p className="section-lede reveal">A selection of projects I've worked on.</p>
+
+        <div className="projects">
+          {PROJECTS.map((p) => <ProjectCard key={p.id} project={p} />)}
         </div>
       </div>
     </section>

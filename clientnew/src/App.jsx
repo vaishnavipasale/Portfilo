@@ -10,6 +10,7 @@ import Footer from './components/Footer.jsx';
 export default function App() {
   return (
     <>
+      <div className="scanlines" />
       <Nav />
       <Hero />
       <About />

@@ -34,8 +34,9 @@ const ENTRIES = [
 ];
 
 function Entry({ entry }) {
+  const ref = useReveal();
   return (
-    <div className="entry">
+    <div className="entry reveal" ref={ref}>
       <div className="ver">{entry.ver}</div>
       <div className="role">{entry.role}</div>
       <div className="meta">{entry.meta}</div>
@@ -46,16 +47,14 @@ function Entry({ entry }) {
 
 export default function Timeline() {
   const headRef = useReveal();
-  const bodyRef = useReveal();
   return (
     <section id="experience">
       <div className="wrap">
-        <h2 className="reveal" ref={headRef}>Career log</h2>
-        <div className="reveal" ref={bodyRef}>
-          <p className="section-lede">Education and work experience, newest first — like any good release history.</p>
-          <div className="timeline">
-            {ENTRIES.map((e) => <Entry key={e.ver} entry={e} />)}
-          </div>
+        <div className="tag">04 — changelog</div>
+        <h2 className="reveal" ref={headRef}>Career <span>Log</span></h2>
+        <p className="section-lede reveal">Chronological, like any good release history.</p>
+        <div className="timeline">
+          {ENTRIES.map((e) => <Entry key={e.ver} entry={e} />)}
         </div>
       </div>
     </section>

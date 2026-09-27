@@ -1,13 +1,16 @@
 export default function Nav() {
   return (
     <nav>
-      <div className="logo">vaishnavi.pasale</div>
+      <div className="logo">
+        <span className="logo-mark">VP</span>
+        Vaishnavi Pasale
+      </div>
       <div className="navlinks">
-        <a href="#about">about</a>
-        <a href="#skills">skills</a>
-        <a href="#projects">projects</a>
-        <a href="#experience">log</a>
-        <a href="#contact">contact</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Career log</a>
+        <a href="#contact">Contact</a>
       </div>
     </nav>
   );
